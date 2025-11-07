@@ -5,7 +5,33 @@
   <h2>Bienvenido {{username}} </h2> <br>
   <h3>Su saldo $ {{saldo}} </h3> <br>
   <h3 class="rr-subtitulo">Últimas 5 apuestas </h3> 
-       <!--falta tabla ultimas transacciones, boton de eliminar cuenta y boton de cerrar sesion-->
+         <div class="fondoMain">
+      <table class="rr-tabla">
+        <tr>
+          <th>Números Apostados</th>
+          <th>Monto</th>
+          <th>Resultado</th>
+          <th>Variación de Saldo</th>
+        </tr>
+        **{{#each ultimasApuestas}}**
+        <tr>
+          <td>{{this.numeros}}</td>
+          <td>{{this.monto}}</td>
+                    <td class="{{this.resultadoColor}}">{{this.resultado}}</td>
+                    <td style="color: {{this.colorVariacion}};">{{this.variacion}}</td>
+        </tr>
+        **{{/each}}**
+      </table>
+    </div>
+    <br>
+
+    <a class="enlace" href="ruleta.handlebars">
+        <button> Ir a la Ruleta</button>
+    </a>
+
+    <button style="background-color: #555; margin-left: 10px;" onclick="window.location.href='logout'"> Cerrar Sesión</button>
+    <button style="background-color: #b80000; margin-left: 10px;" onclick="window.location.href='deleteAccount'"> Eliminar Cuenta</button>
+
 
   <a class="enlace" href="ruleta.handlebars"> <li class="izq"> Ir al perfil </li></a>
   </body>
